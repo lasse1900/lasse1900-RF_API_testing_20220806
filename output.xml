@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.10.4 on win32)" generated="20220806 12:55:52.041" rpa="false" schemaversion="3">
+<suite id="s1" name="Udemy Api Test" source="C:\Users\ett19411\OneDrive - Etteplan Oyj\Desktop\udemy_api_test">
+<suite id="s1-s1" name="Tests" source="C:\Users\ett19411\OneDrive - Etteplan Oyj\Desktop\udemy_api_test\tests">
+<suite id="s1-s1-s1" name="Api" source="C:\Users\ett19411\OneDrive - Etteplan Oyj\Desktop\udemy_api_test\tests\api">
+<suite id="s1-s1-s1-s1" name="Endpoints" source="C:\Users\ett19411\OneDrive - Etteplan Oyj\Desktop\udemy_api_test\tests\api\endpoints">
+<suite id="s1-s1-s1-s1-s1" name="Login" source="C:\Users\ett19411\OneDrive - Etteplan Oyj\Desktop\udemy_api_test\tests\api\endpoints\login">
+<suite id="s1-s1-s1-s1-s1-s1" name="Verify Login" source="C:\Users\ett19411\OneDrive - Etteplan Oyj\Desktop\udemy_api_test\tests\api\endpoints\login\verify_login.robot">
+<test id="s1-s1-s1-s1-s1-s1-t1" name="Verify Login Returns 200" line="8">
+<kw name="Log To Console" library="BuiltIn">
+<arg>\nSending Requests To ${GLOBAL_ENDPOINT_LOGIN}\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220806 12:55:52.202" endtime="20220806 12:55:52.202"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{jsonBody}</var>
+<arg>username=admin</arg>
+<arg>password=masterPass</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220806 12:55:52.202" level="INFO">&amp;{jsonBody} = { username=admin | password=masterPass }</msg>
+<status status="PASS" starttime="20220806 12:55:52.202" endtime="20220806 12:55:52.202"/>
+</kw>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>url=${GLOBAL_ENDPOINT_LOGIN}</arg>
+<arg>json=${jsonBody}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220806 12:55:52.207" level="INFO">POST Request : url=http://127.0.0.1:5000/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '47', 'Content-Type': 'application/json'} 
+ body=b'{"username": "admin", "password": "masterPass"}' 
+ </msg>
+<msg timestamp="20220806 12:55:52.207" level="INFO">POST Response : url=http://127.0.0.1:5000/login 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/2.2.1 Python/3.10.4', 'Date': 'Sat, 06 Aug 2022 09:55:52 GMT', 'Content-Type': 'application/json', 'Content-Length': '49', 'Connection': 'close'} 
+ body={"token":"asfd234fkaDkf2asdf2a889DFJSFlsDFWf21"}
+ 
+ </msg>
+<msg timestamp="20220806 12:55:52.207" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220806 12:55:52.203" endtime="20220806 12:55:52.207"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220806 12:55:52.208" endtime="20220806 12:55:52.208"/>
+</kw>
+<status status="PASS" starttime="20220806 12:55:52.201" endtime="20220806 12:55:52.208"/>
+</test>
+<status status="PASS" starttime="20220806 12:55:52.078" endtime="20220806 12:55:52.209"/>
+</suite>
+<status status="PASS" starttime="20220806 12:55:52.077" endtime="20220806 12:55:52.212"/>
+</suite>
+<status status="PASS" starttime="20220806 12:55:52.074" endtime="20220806 12:55:52.213"/>
+</suite>
+<status status="PASS" starttime="20220806 12:55:52.072" endtime="20220806 12:55:52.215"/>
+</suite>
+<status status="PASS" starttime="20220806 12:55:52.057" endtime="20220806 12:55:52.216"/>
+</suite>
+<status status="PASS" starttime="20220806 12:55:52.041" endtime="20220806 12:55:52.216"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Udemy Api Test">Udemy Api Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">Udemy Api Test.Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Api">Udemy Api Test.Tests.Api</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="Endpoints">Udemy Api Test.Tests.Api.Endpoints</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1-s1" name="Login">Udemy Api Test.Tests.Api.Endpoints.Login</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1-s1-s1" name="Verify Login">Udemy Api Test.Tests.Api.Endpoints.Login.Verify Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
