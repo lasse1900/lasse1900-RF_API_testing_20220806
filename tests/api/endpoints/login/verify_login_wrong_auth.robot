@@ -1,5 +1,6 @@
 *** Settings ***
 Resource    ../../../../testdata/variables/imports.resource
+Resource    ../../../../keywords/imports.resource
 
 Library    RequestsLibrary
 Library    ../../../../lib/json_validate_schema.py
@@ -22,4 +23,4 @@ Custom Test Template
     &{jsonBody}    Create Dictionary    username=${username}    password=${password}
     ${response}    POST    url=${GLOBAL_ENDPOINT_LOGIN}    json=${jsonBody}    expected_status=401
     Log To Console    ${response}
-    Validate Json Schema    input_json=${response.json()}    reference_schema_path=${GLOBAL_SCHEMA_ERROR}
+    Validate Schema    inputJson=${response.json()}    referenceSchemaPath=${GLOBAL_SCHEMA_ERROR}
