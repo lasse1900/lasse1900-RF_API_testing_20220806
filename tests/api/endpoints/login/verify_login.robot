@@ -11,4 +11,4 @@ Verify Login Returns 200
     &{jsonBody}    Create Dictionary    username=admin    password=masterPass 
     ${response}    POST    url=${GLOBAL_ENDPOINT_LOGIN}    json=${jsonBody}    expected_status=200
     Log To Console    ${response}
-    # Validate Json Schema    input_json=${response.json()}    reference_schema_path=${GLOBAL_SCHEMA_LOGIN}
+    Validate Json Schema    input_json=${response.json()}    reference_schema_path=${GLOBAL_SCHEMA_LOGIN}
