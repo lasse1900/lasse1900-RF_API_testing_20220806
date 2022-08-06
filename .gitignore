@@ -1,5 +1,4 @@
 # Test logs
 
-log.html
-output.html
-report.html
+*.html
+*.xml
