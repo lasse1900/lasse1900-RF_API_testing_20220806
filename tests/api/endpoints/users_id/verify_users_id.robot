@@ -1,5 +1,4 @@
 *** Settings ***
-*** Settings ***
 Resource    ../../../../testdata/variables/imports.resource
 Resource    ../../../../keywords/imports.resource
 Resource    ../../../../keywords/setupTeardowns.robot
