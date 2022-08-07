@@ -14,3 +14,22 @@ Authorize
         Set Global Variable    ${GLOBAL_AUTH_HEADERS}    ${headers}
         Set Global Variable    ${GLOBAL_AUTH_SET}    ${True}
     END
+
+Create New User
+    [Arguments]    ${active}=${True}    ${city}=TestCity    ${contractsCurrency}=USD   ${contractsId}=33  ${contractsPrice}=${9.99}
+    ...   ${contractsType}=basic    ${email}=tom@miller.com
+    ...  ${name}=miller    ${street}=1st street    ${surname}=tom    ${zip}=08100
+    @{contracts}  Create List
+    ${contract}    Create Dictionary  currency=${contractsCurrency}  id=${contractsId}
+    ...  price=${contractsPrice}  type=${contractsType}
+    Append To List    ${contracts}    ${contract}
+    ${body}  Create Dictionary  active=${active}  city=${city}  contracts=${contracts}
+    ...  email=${email}  name=${email}  street=${street}  surname=${surname}  zip=${zip}
+
+    ${response}  POST  url=${GLOBAL_ENDPOINT_USERS}  json=${body}  expected_status=201  headers=${GLOBAL_AUTH_HEADERS}
+    ${userId}    Get From Dictionary    ${response.json()}    ID
+    [Return]    ${userId}    ${response}
+
+Delete User
+    [Arguments]  ${userId}
+    ${response}  DELETE  url=${GLOBAL_ENDPOINT_USERS}/${userId}  expected_status=200  headers=${GLOBAL_AUTH_HEADERS}
