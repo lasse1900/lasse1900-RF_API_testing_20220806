@@ -18,7 +18,6 @@ Verify Login With Wrong User And Password Returns 401          quest        wron
 
 *** Keywords ***
 Custom Test Template
-    # Create a dictionary
     [Arguments]    ${username}    ${password}
     &{jsonBody}    Create Dictionary    username=${username}    password=${password}
     ${response}    POST    url=${GLOBAL_ENDPOINT_LOGIN}    json=${jsonBody}    expected_status=401
