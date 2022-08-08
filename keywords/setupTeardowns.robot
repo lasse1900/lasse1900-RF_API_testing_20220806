@@ -42,3 +42,4 @@ Create New User
 Delete User
     [Arguments]  ${userId}
     ${response}  DELETE  url=${GLOBAL_ENDPOINT_USERS}/${userId}  expected_status=200  headers=${GLOBAL_AUTH_HEADERS}
+    [Return]    ${response}

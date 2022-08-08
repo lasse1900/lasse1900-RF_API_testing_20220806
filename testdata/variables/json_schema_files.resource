@@ -5,3 +5,4 @@ ${GLOBAL_SCHEMA_ERROR_CONTRACTS}    ${CURDIR}\\..\\schemas\\error_contracts.json
 ${GLOBAL_SCHEMA_USERS_ID}    ${CURDIR}\\..\\schemas\\users_id.json
 ${GLOBAL_SCHEMA_USERS}    ${CURDIR}\\..\\schemas\\users.json
 ${GLOBAL_SCHEMA_USERS_POST}    ${CURDIR}\\..\\schemas\\users_post.json
+${GLOBAL_SCHEMA_USERS_DELETE}    ${CURDIR}\\..\\schemas\\users_delete.json
